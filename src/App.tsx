@@ -1,16 +1,11 @@
 import './App.css'
 
 function App() {
-
-
-  return (
-    
+return (
       <div>
         <h1>Welcome to Host Module</h1>
       </div>
-       
-    
-  )
+       )
 }
 
 export default App
