@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useAuth } from "@workos-inc/authkit-react";
 
-export default function App() {
+export const RegisterPage = () => {
   const { isLoading, user, signUp, signOut } = useAuth();
 
  

@@ -1,5 +1,5 @@
 import { AuthKitProvider } from '@workos-inc/authkit-react';
-import RegisterPage from './Raavana-RegisterPage/RegisterPage';
+import { RegisterPage } from './Raavana-RegisterPage/RegisterPage';
 
 
 export const App2 = () => {
