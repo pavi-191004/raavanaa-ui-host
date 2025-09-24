@@ -1,27 +1,16 @@
 import React from "react";
 import "./App.css";
-const RemoteApp = React.lazy(() => import("UIComponents/App"));
-
-const Button = React.lazy(() => import("UIComponents/Button"));
-
-const AdminApp = React.lazy(()=> import ("admin_fe/App"));
-
-const StudentApp = React.lazy(()=> import("ui_student/App"));
-
-const RecruiterApp = React.lazy(()=> import("raavana_ui_recruiter/App"));
+import { AuthKitProvider } from '@workos-inc/authkit-react';
+import { LoginPage } from './Raavanaa-Login-Page/LoginPage';
 
 function App() {
   return (
-    <div>
-      <h1>Welcome to Host Module</h1>
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <RemoteApp />
-        <Button />
-        <AdminApp />
-        <StudentApp />
-        <RecruiterApp />
-      </React.Suspense>
-    </div>
+     <div>
+         <AuthKitProvider
+             clientId="client_01K54E5FHK9CE850VVJ3X864X7">
+            <LoginPage/>
+          </AuthKitProvider>
+        </div>
   );
 }
 
