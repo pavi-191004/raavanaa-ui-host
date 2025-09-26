@@ -4,11 +4,11 @@ const RemoteApp = React.lazy(() => import("UIComponents/App"));
 
 const Button = React.lazy(() => import("UIComponents/Button"));
 
-const AdminApp = React.lazy(()=> import ("admin_fe/App"));
+const AdminApp = React.lazy(() => import("admin_fe/App"));
 
-const StudentApp = React.lazy(()=> import("ui_student/App"));
+const StudentApp = React.lazy(() => import("ui_student/App"));
 
-const RecruiterApp = React.lazy(()=> import("raavana_ui_recruiter/App"));
+const RecruiterApp = React.lazy(() => import("raavana_ui_recruiter/App"));
 
 function App() {
   return (
