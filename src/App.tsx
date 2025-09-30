@@ -1,9 +1,9 @@
 import "./App.css";
-import { ForgotPasswordPage } from './Raavana-ForgotPasswordPage/ForgotPasswordPage';
+import { ForgotPasswordButton } from './Raavana-ForgotPasswordPage/ForgotPasswordButton';
 function App() {
   return (
     <div>   
- <ForgotPasswordPage/>
+ <ForgotPasswordButton/>
     
     </div>
   );
