@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useAuth } from "@workos-inc/authkit-react";
-
+import { Loading } from "./Loading";  // 👈 import the new Loading component
 
 type AuthUser = {
   email: string;
@@ -8,7 +8,6 @@ type AuthUser = {
   lastName?: string;
   id: string;
 };
-
 
 const saveUserToLocalStorage = (user: AuthUser | null) => {
   if (!user || !user.email || !user.id) {
@@ -31,24 +30,26 @@ const saveUserToLocalStorage = (user: AuthUser | null) => {
 export const RegisterButton: React.FC = () => {
   const { isLoading, user, signUp, signOut } = useAuth();
 
-  
   React.useEffect(() => {
     if (user) {
-      
       saveUserToLocalStorage(user as AuthUser);
     }
   }, [user]);
 
+ 
+  const handleSignOut = () => {
+    signOut();
+    localStorage.removeItem("Auth_data");
+  };
+
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />; 
   }
 
   if (!user) {
     return (
       <div>
-        <button onClick={() => signUp()}>
-          Register
-        </button>
+        <button onClick={() => signUp()}>Register</button>
       </div>
     );
   }
@@ -57,14 +58,7 @@ export const RegisterButton: React.FC = () => {
     <div>
       <h2>Welcome, {user.firstName || user.email}</h2>
       <p>You have successfully signed up.</p>
-      <button
-        onClick={() => {
-          signOut();
-          localStorage.removeItem("Auth_data"); 
-        }}
-      >
-        Sign Out
-      </button>
+      <button onClick={handleSignOut}>Sign Out</button>
     </div>
   );
 };
