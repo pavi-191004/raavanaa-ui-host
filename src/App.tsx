@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+// import "./App.css";
 const RemoteApp = React.lazy(() => import("UIComponents/App"));
 
 const Button = React.lazy(() => import("UIComponents/Button"));
