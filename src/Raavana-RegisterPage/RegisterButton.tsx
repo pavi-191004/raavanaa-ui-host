@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useAuth } from "@workos-inc/authkit-react";
-import { Loading } from "./Loading";  // 👈 import the new Loading component
+import { Loading } from "./Loading";  
 
 type AuthUser = {
   email: string;
@@ -11,7 +11,7 @@ type AuthUser = {
 
 const saveUserToLocalStorage = (user: AuthUser | null) => {
   if (!user || !user.email || !user.id) {
-    console.warn("Invalid user data");
+   
     return;
   }
 
@@ -24,7 +24,7 @@ const saveUserToLocalStorage = (user: AuthUser | null) => {
   };
 
   localStorage.setItem("Auth_data", JSON.stringify(signupData));
-  console.log("User stored in localStorage:", signupData);
+
 };
 
 export const RegisterButton: React.FC = () => {
