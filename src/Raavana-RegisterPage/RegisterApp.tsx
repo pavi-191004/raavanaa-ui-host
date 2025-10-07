@@ -8,12 +8,11 @@ export const RegisterApp = () => {
     <div>
       <AuthKitProvider clientId="client_01K54E5FHK9CE850VVJ3X864X7">
         <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<RegisterButton/>}></Route>
-          <Route path="/homePage" element={<HomePage/>}></Route>
-        </Routes>
+          <Routes>
+            <Route path="/" element={<RegisterButton />}></Route>
+            <Route path="/homePage" element={<HomePage />}></Route>
+          </Routes>
         </BrowserRouter>
-        
       </AuthKitProvider>
     </div>
   );

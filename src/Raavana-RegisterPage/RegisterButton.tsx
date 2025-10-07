@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export const RegisterButton = () => {
-  const {user, isLoading, signUp } = useAuth();
+  const { user, isLoading, signUp } = useAuth();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (!isLoading && user) {
@@ -15,7 +14,7 @@ export const RegisterButton = () => {
   }, [user, isLoading, navigate]);
 
   const handleRegister = () => {
-    signUp(); 
+    signUp();
   };
 
   return (
