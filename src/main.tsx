@@ -8,8 +8,8 @@ import { RoutingPages } from "./StudentStaffSelectionPage/RoutingPages.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {/* <RegisterApp /> */}
-    <RoutingPages/>
+    <RegisterApp />
+    {/* <RoutingPages/> */}
     
   </StrictMode>
 );

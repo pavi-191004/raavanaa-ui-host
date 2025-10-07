@@ -1,31 +1,26 @@
 import * as React from "react";
 import { useAuth } from "@workos-inc/authkit-react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const RegisterButton = () => {
-  const { isLoading, user, signUp, signOut } = useAuth();
+  const {user, isLoading, signUp } = useAuth();
+  const navigate = useNavigate();
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-  if (!user) {
-    return (
-      <div>
-        <button
-          onClick={() => {
-            signUp();
-          }}
-        >
-          Register
-        </button>
-      </div>
-    );
-  }
+
+  useEffect(() => {
+    if (!isLoading && user) {
+      navigate("/homepage");
+    }
+  }, [user, isLoading, navigate]);
+
+  const handleRegister = () => {
+    signUp(); 
+  };
 
   return (
     <div>
-      <h2>Welcome, {user.firstName || user.email}</h2>
-      <p>You have successfully signed up.</p>
-      <button onClick={() => signOut()}>Sign Out</button>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 };
