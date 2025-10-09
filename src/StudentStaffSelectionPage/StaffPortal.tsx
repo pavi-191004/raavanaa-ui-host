@@ -11,10 +11,10 @@ export const StaffPortal = () => {
   };
 
   return (
-    <center>
+    <div>
       <h1>Welcome Staff</h1>
       <p>You are logged in as a staff member.</p>
       <button onClick={handleLogout}>Log Out</button>
-    </center>
+    </div>
   );
 };
