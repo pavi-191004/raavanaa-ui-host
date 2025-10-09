@@ -14,7 +14,7 @@ export const RoutingPages = () => {
             <Route path="/" element={<StudentStaffSelectionCardPage />} />
             <Route path="/studentportal" element={<StudentPortal />} />
             <Route path="/staffportal" element={<StaffPortal />} />
-            <Route path="/signup" element={<SignInToStaffStudentPortal/>} />
+            <Route path="/signin" element={<SignInToStaffStudentPortal/>} />
           </Routes>
         </BrowserRouter>
       </AuthKitProvider>

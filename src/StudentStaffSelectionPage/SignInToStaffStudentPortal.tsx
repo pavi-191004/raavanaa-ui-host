@@ -3,22 +3,34 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const SignInToStaffStudentPortal = () => {
-  const { signIn } = useAuth();
+  const {user,signIn, isLoading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    signIn().then(() => {
-      const role = localStorage.getItem("selectedRole");
+    if (!isLoading && user) {
+    
+      const stored = JSON.parse(localStorage.getItem("selectedRole") || "[]");
+      const latest = stored[stored.length - 1]?.type;
 
-      if (role === "student") {
+      
+
+      if (latest === "student") {
         navigate("/studentportal");
-      } else if (role === "staff") {
+      } else if (latest === "staff") {
         navigate("/staffportal");
       } else {
         navigate("/");
       }
-    });
-  }, [signIn, navigate]);
+    }
+
+     if (!isLoading && !user) {
+      signIn();
+      return;
+    }
+  
+
+    
+  }, [signIn, navigate,isLoading]);
 
   return (
     <div>

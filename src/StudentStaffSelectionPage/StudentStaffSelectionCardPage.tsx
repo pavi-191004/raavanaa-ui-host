@@ -9,7 +9,7 @@ export const StudentStaffSelectionCardPage = () => {
     const existing = JSON.parse(localStorage.getItem("selectedRole") || "[]");
     const updated = [...existing, { type, time: new Date().toISOString() }];
     localStorage.setItem("selectedRole", JSON.stringify(updated));
-    navigate("/signup");
+    navigate("/signin");
   };
 
   return (
