@@ -7,28 +7,33 @@ export const SignInToStaffStudentPortal = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoading && user) {
-      const stored = JSON.parse(localStorage.getItem("selectedRole") || "[]");
-      const latest = stored[stored.length - 1]?.type;
+    if (isLoading) return;
 
-      if (latest === "student") {
-        navigate("/studentportal");
-      } else if (latest === "staff") {
-        navigate("/staffportal");
-      } else {
-        navigate("/");
-      }
-    }
+    const stored = JSON.parse(localStorage.getItem("selectedRole") || "[]");
+    const latest = stored[stored.length - 1]?.type;
 
-    if (!isLoading && !user) {
-      signIn();
+    if (user) {
+      if (latest === "student") navigate("/studentportal", { replace: true });
+      else if (latest === "staff") navigate("/staffportal", { replace: true });
+      else navigate("/", { replace: true });
       return;
     }
-  }, [signIn, navigate, user, isLoading]);
+
+    if (!user) {
+      const returnTo =
+        latest === "student"
+          ? "/studentportal"
+          : latest === "staff"
+          ? "/staffportal"
+          : "/";
+
+      signIn({ state: { returnTo } });
+    }
+  }, [user, isLoading, signIn, navigate]);
 
   return (
-    <div>
-      <p>Redirecting to sign in...</p>
+    <div style={{ textAlign: "center", marginTop: "100px" }}>
+      <p>Redirecting to WorkOS sign-in…</p>
     </div>
   );
 };
